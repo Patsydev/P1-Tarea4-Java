@@ -1,5 +1,4 @@
-@@ -1,2 +1,246 @@
-# P1-Tarea4-Java
+# Proyecto de Programación 1 - Tarea 4
 Proyecto de la Tarea 4: Formulario y Gestión de Usuarios en Java (Swing + MySQL).
 
 Sistema de Gestión de Usuarios desarrollado en Java con interfaz gráfica Swing y base de datos MySQL.
@@ -218,31 +217,12 @@ Características visuales:
 5. **Credenciales**: Mover a variables de entorno
 6. **HTTPS**: Para conexiones remotas a la BD
 
-## 🤝 Contribuciones
-
-Las contribuciones son bienvenidas. Por favor:
-
-1. Fork el proyecto
-2. Crear una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abrir un Pull Request
-
 ## 📝 Licencia
 
 Este proyecto es de código abierto y está disponible para fines educativos.
 
 ## 👤 Autor
 
-**Patsydev**
+**⭐ Patsydev**
 - GitHub: [@Patsydev](https://github.com/Patsydev)
 
-## 🙏 Agradecimientos
-
-- Instituto Tecnológico de Las Américas (ITLA)
-- Comunidad Java y Swing
-- MySQL y Oracle
-
----
-
-⭐ Si este proyecto te resultó útil, considera darle una estrella en GitHub
