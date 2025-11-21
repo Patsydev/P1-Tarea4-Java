@@ -102,10 +102,12 @@ CREATE TABLE IF NOT EXISTS usuarios (
 Editar el archivo `src/db/DatabaseConnection.java` con tus credenciales:
 
 ```java
-private static final String JDBC_URL = "jdbc:mysql://tu-servidor:puerto/almacenitlafinal";
+private static final String JDBC_URL = "jdbc:mysql://localhost:3306/almacenitlafinal";
 private static final String USERNAME = "tu_usuario";
 private static final String PASSWORD = "tu_contraseña";
 ```
+
+**Nota**: Si tu MySQL está en otro servidor o puerto, ajusta `localhost:3306` según corresponda.
 
 **⚠️ Nota de Seguridad**: En producción, las credenciales deben almacenarse en variables de entorno o archivos de configuración externos, no en el código fuente.
 
@@ -125,10 +127,11 @@ Desde IntelliJ:
 
 Desde terminal:
 ```bash
-# Compilar
-javac -cp "src/lib/*" -d bin src/**/*.java
+# Compilar (crear directorio bin primero)
+mkdir -p bin
+javac -cp "src/lib/*" -d bin src/db/*.java src/model/*.java src/factory/*.java src/repository/*.java src/ui/*.java
 
-# Ejecutar
+# Ejecutar (en Windows usar ; en lugar de : para el classpath)
 java -cp "bin:src/lib/*" ui.Main
 ```
 
