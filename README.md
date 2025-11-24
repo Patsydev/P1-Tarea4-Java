@@ -109,7 +109,7 @@ El proyecto sigue una arquitectura en capas:
 
 Este proyecto es de código abierto y está disponible para fines educativos.
 
-## 👤 Autor
+## Autor
 
 **⭐ Patsydev**
 - GitHub: [@Patsydev](https://github.com/Patsydev)
