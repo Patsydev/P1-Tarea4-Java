@@ -3,11 +3,11 @@ Proyecto de la Tarea 4: Formulario y Gestión de Usuarios en Java (Swing + MySQL
 
 Sistema de Gestión de Usuarios desarrollado en Java con interfaz gráfica Swing y base de datos MySQL.
 
-## 📋 Descripción
+## Descripción
 
 Este proyecto es una aplicación de escritorio para la gestión de usuarios que permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) con una interfaz gráfica intuitiva y moderna. La aplicación incluye un sistema de autenticación con login y registro de usuarios.
 
-## ✨ Características Principales
+## Características Principales
 
 - 🔐 **Sistema de Autenticación**: Login seguro con validación de credenciales
 - 📝 **Registro de Usuarios**: Formulario completo para crear nuevas cuentas
@@ -17,11 +17,8 @@ Este proyecto es una aplicación de escritorio para la gestión de usuarios que 
   - Visualizar lista completa de usuarios
   - Actualizar información de usuarios existentes
   - Eliminar usuarios con confirmación
-- 🎨 **Interfaz Moderna**: Diseño limpio con paleta de colores personalizada
-- 💾 **Persistencia de Datos**: Conexión a base de datos MySQL
-- 🏗️ **Arquitectura Limpia**: Separación de capas (UI, Modelo, Repositorio, Factory)
 
-## 🛠️ Tecnologías Utilizadas
+## Tecnologías Utilizadas
 
 - **Java**: Lenguaje de programación principal
 - **Swing**: Framework para la interfaz gráfica de usuario
@@ -30,7 +27,7 @@ Este proyecto es una aplicación de escritorio para la gestión de usuarios que 
 - **MySQL Connector/J 9.5.0**: Driver JDBC para MySQL
 - **IntelliJ IDEA**: IDE de desarrollo
 
-## 📁 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 P1-Tarea4-Java/
@@ -62,55 +59,12 @@ P1-Tarea4-Java/
 └── README.md
 ```
 
-## 📋 Requisitos Previos
+## Requisitos Previos
 
-- **JDK 8 o superior** instalado
-- **MySQL Server** instalado y ejecutándose
-- **IDE Java** (IntelliJ IDEA recomendado) o compilador Java
-- **MySQL Connector/J** (incluido en el proyecto)
-
-## 🚀 Instalación
-
-### 1. Clonar el Repositorio
-
-```bash
-git clone https://github.com/Patsydev/P1-Tarea4-Java.git
-cd P1-Tarea4-Java
-```
-
-### 2. Configurar la Base de Datos
-
-Crear la base de datos y la tabla necesaria:
-
-```sql
-CREATE DATABASE IF NOT EXISTS almacenitlafinal;
-
-USE almacenitlafinal;
-
-CREATE TABLE IF NOT EXISTS usuarios (
-    idUser INT AUTO_INCREMENT PRIMARY KEY,
-    UserName VARCHAR(50) NOT NULL UNIQUE,
-    Nombre VARCHAR(100) NOT NULL,
-    Apellido VARCHAR(100) NOT NULL,
-    Telefono VARCHAR(20),
-    Email VARCHAR(100) NOT NULL,
-    Password VARCHAR(255) NOT NULL
-);
-```
-
-### 3. Configurar Credenciales de Base de Datos
-
-Editar el archivo `src/db/DatabaseConnection.java` con tus credenciales:
-
-```java
-private static final String JDBC_URL = "jdbc:mysql://localhost:3306/almacenitlafinal";
-private static final String USERNAME = "tu_usuario";
-private static final String PASSWORD = "tu_contraseña";
-```
-
-**Nota**: Si tu MySQL está en otro servidor o puerto, ajusta `localhost:3306` según corresponda.
-
-**⚠️ Nota de Seguridad**: En producción, las credenciales deben almacenarse en variables de entorno o archivos de configuración externos, no en el código fuente.
+- **JDK 7 o superior** instalado
+- **MySQL Server** instalado y con la base de datos
+- **IDE Java** (IntelliJ IDE recomendado) 
+- **MySQL Connector/J** (incluido en el proyecto, hay que aplicarlo como plugin)
 
 ### 4. Configurar el Proyecto en IntelliJ IDEA
 
@@ -118,7 +72,7 @@ private static final String PASSWORD = "tu_contraseña";
 2. Seleccionar `File > Open` y elegir la carpeta del proyecto
 3. Ir a `File > Project Structure > Libraries`
 4. Asegurarse de que `mysql-connector-j-9.5.0.jar` esté añadido como biblioteca
-5. Configurar el SDK del proyecto (JDK 8 o superior)
+5. Configurar el SDK del proyecto (JDK 7)
 
 ### 5. Compilar y Ejecutar
 
@@ -126,48 +80,7 @@ Desde IntelliJ:
 - Navegar a `src/ui/Main.java`
 - Click derecho > `Run 'Main.main()'`
 
-Desde terminal:
-```bash
-# Compilar (crear directorio bin primero)
-mkdir -p bin
-javac -cp "src/lib/*" -d bin src/db/*.java src/model/*.java src/factory/*.java src/repository/*.java src/ui/*.java
-
-# Ejecutar (en Windows usar ; en lugar de : para el classpath)
-java -cp "bin:src/lib/*" ui.Main
-```
-
-## 💻 Uso de la Aplicación
-
-### Pantalla de Login
-
-1. Ingresar nombre de usuario y contraseña
-2. Hacer clic en **"INICIAR SESIÓN"**
-3. Si no tienes cuenta, hacer clic en **"CREAR CUENTA"**
-
-### Registro de Usuario
-
-1. Completar todos los campos del formulario:
-   - Nombre
-   - Apellido
-   - Teléfono
-   - Correo electrónico
-   - Nombre de usuario
-   - Contraseña (confirmar)
-2. Hacer clic en **"CREAR CUENTA"**
-3. Serás redirigido al login automáticamente
-
-### Panel de Administración
-
-Una vez autenticado:
-
-- **Ver usuarios**: La tabla muestra todos los usuarios registrados
-- **Crear usuario**: Click en "Nuevo Usuario" y completar los campos en la tabla
-- **Editar usuario**: Click en una celda (excepto ID) para editar directamente
-- **Guardar cambios**: Click en "Guardar/Actualizar" después de editar
-- **Eliminar usuario**: Seleccionar fila y hacer click en "Eliminar Usuario"
-- **Cerrar sesión**: Click en "Cerrar Sesión" para volver al login
-
-## 🏗️ Arquitectura del Proyecto
+## Arquitectura del Proyecto
 
 El proyecto sigue una arquitectura en capas:
 
@@ -192,32 +105,7 @@ El proyecto sigue una arquitectura en capas:
 - **Repository**: Para abstraer el acceso a datos
 - **MVC**: Separación entre modelo, vista y lógica
 
-## 🎨 Diseño de la Interfaz
-
-La aplicación utiliza una paleta de colores personalizada:
-- **Color Principal**: #7E1B27 (Borgoña)
-- **Fondo**: #FFFDEE (Crema)
-- **Color Secundario**: #F0E4D6 (Beige)
-- **Fuentes**: Segoe UI con soporte para emojis
-
-Características visuales:
-- Esquinas redondeadas en campos de texto
-- Efectos hover en botones
-- Tabla con filas alternas en colores
-- Iconos emoji para mejor UX
-
-## ⚠️ Consideraciones de Seguridad
-
-**Nota Importante**: Este es un proyecto educativo. Para producción considerar:
-
-1. **Contraseñas**: Implementar hashing (BCrypt, Argon2)
-2. **SQL Injection**: Ya se usan PreparedStatements (✅)
-3. **Validación**: Añadir validación más robusta de inputs
-4. **Conexión BD**: Usar pool de conexiones
-5. **Credenciales**: Mover a variables de entorno
-6. **HTTPS**: Para conexiones remotas a la BD
-
-## 📝 Licencia
+## Licencia
 
 Este proyecto es de código abierto y está disponible para fines educativos.
 
