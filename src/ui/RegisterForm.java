@@ -236,17 +236,12 @@ public class RegisterForm extends JFrame {
 
     // Metodo auxiliar para obtener fuente que soporte emojis
     private Font getEmojiFont(int style, int size) {
-        // Intentar con diferentes fuentes que soporten emojis
         Font font = new Font("Segoe UI Emoji", style, size);
-
-        // Verificar si la fuente está disponible
         if (font.getFamily().equals("Dialog")) {
-            // Si Segoe UI Emoji no está disponible, intentar con alternativas
             font = new Font("Apple Color Emoji", style, size);
             if (font.getFamily().equals("Dialog")) {
                 font = new Font("Noto Color Emoji", style, size);
                 if (font.getFamily().equals("Dialog")) {
-                    // Si ninguna fuente de emojis está disponible, usar Segoe UI normal
                     font = new Font("Segoe UI", style, size);
                 }
             }
@@ -254,33 +249,74 @@ public class RegisterForm extends JFrame {
         return font;
     }
 
-    // Metodo que valida los campos, crea el usuario y lo registra en el repositorio
+    // Metodo que valida los campos individualmente, crea el usuario y lo registra
     private void registrar() {
-        if (txtNombre.getText().isEmpty() ||
-                txtApellido.getText().isEmpty() ||
-                txtTelefono.getText().isEmpty() ||
-                txtEmail.getText().isEmpty() ||
-                txtUserName.getText().isEmpty() ||
-                txtPass.getPassword().length == 0 ||
-                txtPass2.getPassword().length == 0) {
-
-            // Mensaje si falta algún campo obligatorio
+        if (txtNombre.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this,
-                    "Todos los campos son obligatorios.",
-                    "Campos incompletos",
+                    "El campo de nombre es obligatorio.",
+                    "Campo incompleto",
                     JOptionPane.WARNING_MESSAGE);
+            txtNombre.requestFocus();
+            return;
+        }
+        if (txtApellido.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this,
+                    "El campo de apellido es obligatorio.",
+                    "Campo incompleto",
+                    JOptionPane.WARNING_MESSAGE);
+            txtApellido.requestFocus();
+            return;
+        }
+        if (txtTelefono.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this,
+                    "El campo de teléfono es obligatorio.",
+                    "Campo incompleto",
+                    JOptionPane.WARNING_MESSAGE);
+            txtTelefono.requestFocus();
+            return;
+        }
+        if (txtEmail.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this,
+                    "El campo de correo electrónico es obligatorio.",
+                    "Campo incompleto",
+                    JOptionPane.WARNING_MESSAGE);
+            txtEmail.requestFocus();
+            return;
+        }
+        if (txtUserName.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this,
+                    "El campo de nombre de usuario es obligatorio.",
+                    "Campo incompleto",
+                    JOptionPane.WARNING_MESSAGE);
+            txtUserName.requestFocus();
+            return;
+        }
+        if (txtPass.getPassword().length == 0) {
+            JOptionPane.showMessageDialog(this,
+                    "El campo de contraseña es obligatorio.",
+                    "Campo incompleto",
+                    JOptionPane.WARNING_MESSAGE);
+            txtPass.requestFocus();
+            return;
+        }
+        if (txtPass2.getPassword().length == 0) {
+            JOptionPane.showMessageDialog(this,
+                    "El campo de confirmar contraseña es obligatorio.",
+                    "Campo incompleto",
+                    JOptionPane.WARNING_MESSAGE);
+            txtPass2.requestFocus();
             return;
         }
 
         // Verificar que las contraseñas coincidan
         String pass1 = String.valueOf(txtPass.getPassword());
         String pass2 = String.valueOf(txtPass2.getPassword());
-
         if (!pass1.equals(pass2)) {
             JOptionPane.showMessageDialog(this,
                     "Las contraseñas no coinciden.",
                     "Error de contraseña",
                     JOptionPane.ERROR_MESSAGE);
+            txtPass.requestFocus();
             return;
         }
 
@@ -296,7 +332,6 @@ public class RegisterForm extends JFrame {
 
         boolean ok = UsuarioRepository.getInstance().registrar(u);
 
-        // Mostrar resultado y volver al Login si se registró correctamente
         if (ok) {
             JOptionPane.showMessageDialog(this,
                     "Usuario registrado exitosamente.",
