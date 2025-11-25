@@ -9,10 +9,10 @@ Este proyecto es una aplicación de escritorio para la gestión de usuarios que 
 
 ## Características Principales
 
-- 🔐 **Sistema de Autenticación**: Login seguro con validación de credenciales
-- 📝 **Registro de Usuarios**: Formulario completo para crear nuevas cuentas
-- 👥 **Gestión de Usuarios**: Panel administrativo con tabla interactiva
-- ✏️ **Operaciones CRUD**: 
+- **Sistema de Autenticación**: Login seguro con validación de credenciales
+- **Registro de Usuarios**: Formulario completo para crear nuevas cuentas
+- **Gestión de Usuarios**: Panel administrativo con tabla interactiva
+- **Operaciones CRUD**: 
   - Crear nuevos usuarios
   - Visualizar lista completa de usuarios
   - Actualizar información de usuarios existentes
